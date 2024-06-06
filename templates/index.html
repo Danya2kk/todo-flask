@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Todo List</h1>
+    <div>Добавить новую задачу:
+        <form action="{{ url_for('add') }}" method="POST">
+            <input type="text" name="todoitem">
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+    <div>
+        <h2>Невыполненные задачи</h2>
+        <ul>
+            {% for todo in incomplete %}
+            <li>
+                {{ todo.text }}
+                <div>
+                    <a href="{{ url_for('complete', id=todo.id) }}" class="btn btn-complete">Задача выполнена</a>
+                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-edit">Редактировать</a>
+                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-delete">Удалить</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <h2>Выполненные задачи</h2>
+        <ul>
+            {% for todo in complete %}
+            <li>
+                {{ todo.text }}
+                <div>
+                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-edit">Редактировать</a>
+                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-delete">Удалить</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
