@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Todo</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="edit">
     <h1>Edit Todo</h1>
-    <form action="{{ url_for('edit', id=todo.id) }}" method="POST">
-        <input type="text" name="todoitem" value="{{ todo.text }}">
-        <input type="submit" value="Сохранить">
+    <form class="from-center" action="{{ url_for('edit', id=todo.id) }}" method="POST">
+        <input class="input-text" type="text" name="todoitem" value="{{ todo.text }}">
+        <input class="input-submit" type="submit" value="Сохранить">
     </form>
-    <a href="{{ url_for('index') }}">Cancel</a>
+    <div class="link"><a class="btn-todo-edit" href="{{ url_for('index') }}">Cancel</a></div>
 </body>
 </html>
