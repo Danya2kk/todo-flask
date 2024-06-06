@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.edit {
+    text-align: center;
+}
+h1, h2{
+    text-align: center;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-text{
+    width: 300px;
+    height: 30px;
+}
+.input-submit{
+    transition: all 0.3s ease 0s;
+    height: 30px;
+    background: rgb(3, 76, 6);
+    border-radius: 25px; 
+    color: white;
+    cursor: pointer;
+}
+.input-submit:hover{
+    background: rgb(85, 85, 85);
+}
+.todo-list{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.todo-list ul{
+    
+}
+.btn-todo{
+    transition: all 0.3s ease 0s;
+    padding: 5px 10px;
+    background: rgb(3, 76, 6);
+    border-radius: 25px; 
+    color: white;
+    text-decoration: none;
+}
+.btn-todo:hover{
+    background: rgb(85, 85, 85);
+}
+.from-center{
+    text-align: center;
+}
+.link{
+    padding:20px 0px;
+}
+.link-index{
+    padding:10px 0px;
+}
+.btn-todo-edit{
+    
+    width: 100px;
+    margin: 0 auto;
+    transition: all 0.3s ease 0s;
+    padding: 5px 10px;
+    background: rgb(136, 3, 3);
+    border-radius: 25px; 
+    color: white;
+    text-decoration: none;
+}
+.btn-todo-edit:hover{
+    background: rgb(85, 85, 85);
+}
