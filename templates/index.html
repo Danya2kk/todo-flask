@@ -7,16 +7,16 @@
 </head>
 <body>
     <h1>Todo List</h1>
-    <div>
+    <div class="button-add">
         <a href="{{ url_for('add') }}" class="btn btn-todo">Добавить новую задачу</a>
     </div>
-    <div>
-        <h2>Невыполненные задачи</h2>
-        <ul>
+    <div class="todo-task">
+        <h2 style="color: red;">Невыполненные задачи</h2>
+        <ul class="false-task">
             {% for todo in incomplete %}
-            <li>
-                <a href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
-                <div>
+            <li >
+                <a class="btn-link" href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
+                <div class="btn-menu">
                     <a href="{{ url_for('complete', id=todo.id) }}" class="btn btn-todo">Задача выполнена</a>
                     <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-todo">Редактировать</a>
                     <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-todo">Удалить</a>
@@ -24,14 +24,14 @@
             </li>
             {% endfor %}
         </ul>
-        <h2>Выполненные задачи</h2>
-        <ul>
+        <h2 style="color: green;">Выполненные задачи</h2>
+        <ul class="true-task">
             {% for todo in complete %}
             <li>
-                <a href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
-                <div>
-                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-edit">Редактировать</a>
-                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-delete">Удалить</a>
+                <a class="btn-link" href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
+                <div class="btn-menu">
+                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-todo">Редактировать</a>
+                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-todo">Удалить</a>
                 </div>
             </li>
             {% endfor %}

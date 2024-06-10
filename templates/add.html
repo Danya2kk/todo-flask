@@ -5,9 +5,9 @@
     <title>Add Todo</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="add-body">
     <h1>Добавить задачу</h1>
-    <form action="{{ url_for('add') }}" method="POST">
+    <form class="add-form" action="{{ url_for('add') }}" method="POST">
         <input type="text" name="category" placeholder="Категория" required>
         <input type="text" name="title" placeholder="Название задачи" required>
         <textarea name="text" placeholder="Текст задачи" required></textarea>
@@ -21,8 +21,8 @@
             <option value="В процессе">В процессе</option>
             <option value="Завершено">Завершено</option>
         </select>
-        <input type="submit" value="Добавить">
+        <input style="margin: 10px 0px 10px 0px;" type="submit" value="Добавить">
     </form>
-    <a href="{{ url_for('index') }}">Вернуться назад</a>
+    <a class="btn btn-todo" href="{{ url_for('index') }}">Вернуться назад</a>
 </body>
 </html>

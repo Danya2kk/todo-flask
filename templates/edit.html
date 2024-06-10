@@ -5,9 +5,9 @@
     <title>Edit Task</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="add-body">
     <h1>Edit Task</h1>
-    <form action="{{ url_for('edit', id=todo.id) }}" method="POST">
+    <form class="add-form" action="{{ url_for('edit', id=todo.id) }}" method="POST">
         <input type="text" name="category" value="{{ todo.category }}" required>
         <input type="text" name="title" value="{{ todo.title }}" required>
         <textarea name="text" required>{{ todo.text }}</textarea>
@@ -21,8 +21,8 @@
             <option value="В процессе" {% if todo.status == 'В процессе' %}selected{% endif %}>В процессе</option>
             <option value="Завершено" {% if todo.status == 'Завершено' %}selected{% endif %}>Завершено</option>
         </select>
-        <input type="submit" value="Сохранить">
+        <input  style="margin: 10px 0px 10px 0px;" type="submit" value="Сохранить">
     </form>
-    <a href="{{ url_for('task_detail', id=todo.id) }}" class="btn btn-back">Cancel</a>
+    <a href="{{ url_for('task_detail', id=todo.id) }}" class="btn btn-todo">Cancel</a>
 </body>
 </html>
