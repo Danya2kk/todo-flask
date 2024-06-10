@@ -2,15 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Todo</title>
+    <title>Edit Task</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="edit">
-    <h1>Edit Todo</h1>
-    <form class="from-center" action="{{ url_for('edit', id=todo.id) }}" method="POST">
-        <input class="input-text" type="text" name="todoitem" value="{{ todo.text }}">
-        <input class="input-submit" type="submit" value="Сохранить">
+<body>
+    <h1>Edit Task</h1>
+    <form action="{{ url_for('edit', id=todo.id) }}" method="POST">
+        <input type="text" name="category" value="{{ todo.category }}" required>
+        <input type="text" name="title" value="{{ todo.title }}" required>
+        <textarea name="text" required>{{ todo.text }}</textarea>
+        <select name="priority" required>
+            <option value="Высокий" {% if todo.priority == 'Высокий' %}selected{% endif %}>Высокий</option>
+            <option value="Средний" {% if todo.priority == 'Средний' %}selected{% endif %}>Средний</option>
+            <option value="Низкий" {% if todo.priority == 'Низкий' %}selected{% endif %}>Низкий</option>
+        </select>
+        <select name="status" required>
+            <option value="Не начато" {% if todo.status == 'Не начато' %}selected{% endif %}>Не начато</option>
+            <option value="В процессе" {% if todo.status == 'В процессе' %}selected{% endif %}>В процессе</option>
+            <option value="Завершено" {% if todo.status == 'Завершено' %}selected{% endif %}>Завершено</option>
+        </select>
+        <input type="submit" value="Сохранить">
     </form>
-    <div class="link"><a class="btn-todo-edit" href="{{ url_for('index') }}">Cancel</a></div>
+    <a href="{{ url_for('task_detail', id=todo.id) }}" class="btn btn-back">Cancel</a>
 </body>
 </html>
