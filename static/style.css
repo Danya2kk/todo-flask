@@ -1,6 +1,11 @@
 body {
     font-family: Arial, sans-serif;
 }
+.add-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .edit {
     text-align: center;
 }
@@ -67,4 +72,45 @@ h1, h2{
 }
 .btn-todo-edit:hover{
     background: rgb(85, 85, 85);
+}
+.todo-task{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-menu {
+    margin: 10px 0px;
+}
+.btn-link{
+    color: black;
+    text-decoration: none;
+}
+.button-add{
+    text-align: center;
+}
+
+.add-form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.add-form input{
+    margin-bottom: 10px;
+}
+
+.add-form textarea{
+    width: 194px;
+    height: 50px;
+}
+.add-form select{
+    margin-top: 10px;
+}
+
+.details-todo{
+text-align: center;
+}
+
+.details-link{
+    text-align: center;
 }
