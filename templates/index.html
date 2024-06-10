@@ -7,36 +7,31 @@
 </head>
 <body>
     <h1>Todo List</h1>
-    <div class="form-input">
-        
-        <form action="{{ url_for('add') }}" method="POST">
-            <p>Добавить новую задачу:</p>
-            <input class="input-text" type="text" name="todoitem">
-            <input class="input-submit" type="submit" value="Добавить">
-        </form>
+    <div>
+        <a href="{{ url_for('add') }}" class="btn btn-todo">Добавить новую задачу</a>
     </div>
-    <div class="todo-list">
-        <h2 style="color: rgb(137, 0, 0);">Невыполненные задачи</h2>
+    <div>
+        <h2>Невыполненные задачи</h2>
         <ul>
             {% for todo in incomplete %}
             <li>
-                {{ todo.text }}
-                <div class="link-index">
-                    <a href="{{ url_for('complete', id=todo.id) }}" class="btn-todo">Задача выполнена</a>
-                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn-todo">Редактировать</a>
-                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn-todo">Удалить</a>
+                <a href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
+                <div>
+                    <a href="{{ url_for('complete', id=todo.id) }}" class="btn btn-todo">Задача выполнена</a>
+                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-todo">Редактировать</a>
+                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-todo">Удалить</a>
                 </div>
             </li>
             {% endfor %}
         </ul>
-        <h2 style="color: rgb(1, 142, 1);">Выполненные задачи</h2>
+        <h2>Выполненные задачи</h2>
         <ul>
             {% for todo in complete %}
             <li>
-                {{ todo.text }}
-                <div class="link-index">
-                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn-todo">Редактировать</a>
-                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn-todo">Удалить</a>
+                <a href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
+                <div>
+                    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-edit">Редактировать</a>
+                    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-delete">Удалить</a>
                 </div>
             </li>
             {% endfor %}
