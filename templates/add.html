@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Todo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Добавить задачу</h1>
+    <form action="{{ url_for('add') }}" method="POST">
+        <input type="text" name="category" placeholder="Категория" required>
+        <input type="text" name="title" placeholder="Название задачи" required>
+        <textarea name="text" placeholder="Текст задачи" required></textarea>
+        <select name="priority" required>
+            <option value="Высокий">Высокий</option>
+            <option value="Средний">Средний</option>
+            <option value="Низкий">Низкий</option>
+        </select>
+        <select name="status" required>
+            <option value="Не начато">Не начато</option>
+            <option value="В процессе">В процессе</option>
+            <option value="Завершено">Завершено</option>
+        </select>
+        <input type="submit" value="Добавить">
+    </form>
+    <a href="{{ url_for('index') }}">Вернуться назад</a>
+</body>
+</html>
