@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Детали задания</h1>
+    <div class="task-details">
+        <p><strong>Категория:</strong> {{ todo.category }}</p>
+        <p><strong>Название:</strong> {{ todo.title }}</p>
+        <p><strong>Описание:</strong> {{ todo.text }}</p>
+        <p><strong>Приоритет:</strong> {{ todo.priority }}</p>
+        <p><strong>Статус:</strong> {{ todo.status }}</p>
+        <p><strong>Выполнение:</strong> {{ 'Выполнено' if todo.complete else 'Не выполнено' }}</p>
+    </div>
+    <a href="{{ url_for('index') }}" class="btn btn-back">Вернуться</a>
+    <a href="{{ url_for('edit', id=todo.id) }}" class="btn btn-edit">Редактировать</a>
+    <a href="{{ url_for('delete', id=todo.id) }}" class="btn btn-delete">Удалить</a>
+</body>
+</html>
