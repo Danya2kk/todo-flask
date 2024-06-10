@@ -6,6 +6,16 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.register-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .edit {
     text-align: center;
 }
@@ -50,6 +60,17 @@ h1, h2{
 .btn-todo:hover{
     background: rgb(85, 85, 85);
 }
+.btn-logout{
+    transition: all 0.3s ease 0s;
+    padding: 5px 10px;
+    background: rgb(3, 76, 6);
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+}
+.btn-logout:hover{
+    background: rgb(85, 85, 85);
+}
 .from-center{
     text-align: center;
 }
@@ -88,7 +109,9 @@ h1, h2{
 .button-add{
     text-align: center;
 }
-
+.sort-label{
+    text-align: center;
+}
 .add-form{
     display: flex;
     flex-direction: column;
@@ -105,6 +128,26 @@ h1, h2{
 }
 .add-form select{
     margin-top: 10px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.login-form input{
+    margin-bottom: 10px;
+}
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.register-form input{
+    margin-bottom: 10px;
 }
 
 .details-todo{

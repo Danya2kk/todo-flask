@@ -6,15 +6,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <h2>Добро пожаловать в менеджер задач, {{ username }}!</h2>
     <h1>Todo List</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     <div class="button-add">
         <a href="{{ url_for('add') }}" class="btn btn-todo">Добавить новую задачу</a>
+        <a href="{{ url_for('logout') }}" class="btn btn-logout">Выйти</a>
     </div>
+
     <div class="todo-task">
         <h2 style="color: red;">Невыполненные задачи</h2>
         <ul class="false-task">
             {% for todo in incomplete %}
-            <li >
+            <li>
                 <a class="btn-link" href="{{ url_for('task_detail', id=todo.id) }}">{{ todo.title }} ({{ todo.category }})</a>
                 <div class="btn-menu">
                     <a href="{{ url_for('complete', id=todo.id) }}" class="btn btn-todo">Задача выполнена</a>
